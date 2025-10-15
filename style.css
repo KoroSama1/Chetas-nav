@@ -1,0 +1,157 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at 50% 20%, #001831, #000814);
+  color: #e0f7ff;
+  overflow-x: hidden;
+}
+
+/* Navbar Styling */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: linear-gradient(135deg, rgba(15,45,75,0.65), rgba(0,70,120,0.45));
+  backdrop-filter: blur(18px) saturate(220%);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Neon edge line */
+.navbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  width: 200%;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, #00e5ff, #00b4d8, transparent);
+  animation: moveLine 5s linear infinite;
+}
+
+@keyframes moveLine {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(50%); }
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.logo img {
+  height: 44px;
+  margin-right: 12px;
+  filter: drop-shadow(0 0 6px rgba(0,225,255,0.4));
+}
+
+.logo span {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #eafaff;
+  letter-spacing: 0.6px;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  z-index: 2;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #c8ecff;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: #00e5ff;
+  box-shadow: 0 0 8px #00e5ff;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00e5ff;
+  text-shadow: 0 0 8px rgba(0,229,255,0.6);
+}
+
+.nav-links a:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Content */
+.content {
+  padding: 120px 40px;
+  text-align: center;
+  color: #caf0f8;
+}
+
+.content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #00e5ff, #4dd0e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* === DIAMOND PULSE BEHIND LOGO === */
+.logo {
+  position: relative;
+  z-index: 2;
+}
+
+.logo::before {
+  content: "";
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  background: radial-gradient(circle, rgba(131,56,236,0.45), rgba(0,229,255,0.25));
+  transform: rotate(45deg) scale(1);
+  top: -1px;
+  left: -5px;
+  border-radius: 6px;
+  box-shadow: 0 0 25px rgba(131,56,236,0.5);
+  animation: pulseDiamond 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes pulseDiamond {
+  0%, 100% {
+    transform: rotate(45deg) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(45deg) scale(1.25);
+    opacity: 0.9;
+  }
+}
+
